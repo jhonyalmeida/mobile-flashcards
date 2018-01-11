@@ -14,7 +14,7 @@ class DeckList extends React.Component {
                 {decks.length > 0
                     ? <FlatList data={decks} renderItem={this.renderDeck.bind(this)} 
                             keyExtractor={(item, index) => item.title} />
-                    : <Text>Nenhum deck cadastrado</Text>
+                    : <Text style={styles.emptyMessage}>Nenhum deck cadastrado</Text>
                 }
             </View>
         )
@@ -32,7 +32,8 @@ class DeckList extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'stretch'
+        alignItems: 'stretch',
+        justifyContent: 'center'
     },
     deckItem: {
         padding: 15,
@@ -43,6 +44,10 @@ const styles = StyleSheet.create({
     },
     cardCounter: {
         color: '#666'
+    },
+    emptyMessage: {
+        fontSize: 18,
+        alignSelf: 'center'
     }
 })
 

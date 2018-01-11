@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { KeyboardAvoidingView, Text, TextInput, Button, StyleSheet } from 'react-native'
+import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { addDeck } from './../core/actions'
 import styles from '../core/styles'
 
@@ -15,11 +15,13 @@ class AddDeck extends React.Component {
     render() {
         const onPress = () => this.props.addDeck(this.state, this.props.onAddDeck)
         return (
-            <KeyboardAvoidingView style={styles.container}>
-                <TextInput style={styles.formField} 
-                    onChangeText={(title) => this.setState({title})} 
-                    returnKeyLabel="Deck title"/>
-                <Button title="Save" style={styles.formButton} onPress={onPress} />
+            <KeyboardAvoidingView behavior="padding" style={styles.container}>
+                <Text style={styles.formLabel}>Deck title</Text>
+                <TextInput style={styles.formField} returnKeyLabel="Deck title"
+                    onChangeText={(title) => this.setState({title})} />
+                <TouchableOpacity style={styles.formButton} onPress={onPress} >
+                    <Text style={styles.formButtonText}>CREATE DECK</Text>
+                </TouchableOpacity>
             </KeyboardAvoidingView>
         )
     }

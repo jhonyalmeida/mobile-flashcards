@@ -7,7 +7,7 @@ const NOTIFICATION_KEY = 'flashcards-notifications'
  * Se ligado, o modo de teste agenda a notificação para um minuto a partir do horário 
  * corrente, ao invés de para as 18:00 do dia seguinte
  */
-const TEST_MODE = true
+const TEST_MODE = false
 
 export function createNotification() {
     return {

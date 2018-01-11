@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { clearNotifications, setLocalNotification } from '../core/notification'
-import styles from '../core/styles'
+import { blue, royalBlue, white } from '../core/styles'
 
 class Results extends React.Component {
     componentDidMount() {
@@ -17,14 +17,52 @@ class Results extends React.Component {
         }
         return (
             <View style={styles.container}>
-                <Text>Quiz finished!</Text>
-                <Text>Deck: {deck.title}</Text>
-                <Text>Score: {score}/{deck.cards.length}</Text>
-                <Button title="Restart Quiz" onPress={() => navigateTo('quizView')} />
-                <Button title="Back to Deck Page" onPress={() => navigateTo('deckView')} />
+                <Text style={styles.message}>Quiz finished!</Text>
+                <Text style={styles.deckTitle}>Deck: {deck.title}</Text>
+                <Text style={styles.score}>Score: {score}/{deck.cards.length}</Text>
+                <TouchableOpacity style={styles.button} 
+                    onPress={() => navigateTo('quizView')} >
+                    <Text style={styles.buttonText}>RESTART QUIZ</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} 
+                    onPress={() => navigateTo('deckView')} >
+                    <Text style={styles.buttonText}>BACK TO DECK</Text>
+                </TouchableOpacity>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    message: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    deckTitle: {
+        fontSize: 18,
+        margin: 15
+    },
+    score: {
+        fontSize: 16,
+        color: '#666',
+        marginBottom: 20
+    },
+    button: {
+        padding: 10,
+        marginBottom: 15,
+        alignItems: 'center',
+        minWidth: 150,
+        backgroundColor: royalBlue
+    },
+    buttonText: {
+        color: white,
+        fontWeight: 'bold'
+    }
+})
 
 export default Results

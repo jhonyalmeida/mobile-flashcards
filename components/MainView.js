@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import DeckList from './DeckList'
 import AddDeck from './AddDeck'
 import api from './../core/api'
+import { blue, white } from './../core/styles'
 
 export default function MainView(props) {
     const Tabs = TabNavigator({
@@ -27,10 +28,10 @@ export default function MainView(props) {
             header: null
         },
         tabBarOptions: {
-            activeTintColor: Platform.OS === 'ios' ? '#292477' : '#fff',
+            activeTintColor: Platform.OS === 'ios' ? blue : white,
             style: {
                 height: 56,
-                backgroundColor: Platform.OS === 'ios' ? '#fff' : '#292477',
+                backgroundColor: Platform.OS === 'ios' ? white : blue,
                 shadowColor: 'rgba(0, 0, 0, 0.24)',
                 shadowOffset: {
                     width: 0,
