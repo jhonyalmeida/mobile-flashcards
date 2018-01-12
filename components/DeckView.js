@@ -30,10 +30,11 @@ class DeckView extends React.Component {
                     onPress={() => this.navigateTo('addQuestionView')} >
                     <Text style={styles.buttonText}>ADD QUESTION</Text>
                 </TouchableOpacity>
+                {deck.cards.length > 0 &&
                 <TouchableOpacity style={styles.button} 
                     onPress={() => this.navigateTo('quizView')} >
                     <Text style={styles.buttonText}>START QUIZ</Text>
-                </TouchableOpacity>
+                </TouchableOpacity>}
             </View>
         )
     }

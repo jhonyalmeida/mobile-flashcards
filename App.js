@@ -16,8 +16,11 @@ import Results from './components/Results'
 import reducer from './core/reducer'
 import { setLocalNotification } from './core/notification'
 import { white, blue } from './core/styles'
+import api from './core/api'
 
 const store = createStore(reducer, applyMiddleware(thunk))
+
+//api.reset()
 
 function navigationOptions(title) {
   return ({ navigation }) => ({
@@ -68,6 +71,7 @@ function MainStatusBar ({backgroundColor, ...props}) {
 export default class App extends React.Component {
   componentDidMount() {
     setLocalNotification()
+    
   }
   render() {
     return (

@@ -34,8 +34,13 @@ const styles = StyleSheet.create({
         margin: 20,
         alignSelf: 'flex-end',
         alignItems: 'center',
-        minWidth: 150,
+        minWidth: 150
+    },
+    formButtonEnabled: {
         backgroundColor: royalBlue
+    },
+    formButtonDisabled: {
+        backgroundColor: 'rgba(65, 105, 225, 0.5)'
     },
     formButtonText: {
         color: white,
